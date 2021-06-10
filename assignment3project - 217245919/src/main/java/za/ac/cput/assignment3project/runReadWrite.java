@@ -84,7 +84,7 @@ public class runReadWrite {
     
     public void sortCustomer(){
         String[] sortID = new String[customerArray.size()];
-        ArrayList<Customer> sortCust = new ArrayList<>();
+        ArrayList<Customer> sortCus = new ArrayList<>();
         int customerArraySize = customerArray.size();
         
         for(int i = 0; i < customerArraySize; i++)
@@ -99,12 +99,12 @@ public class runReadWrite {
             {
                 if(sortID[i].equals(customerArray.get(j).getStHolderId()))
                 {
-                    sortCust.add(customerArray.get(j));
+                    sortCus.add(customerArray.get(j));
                 }
             }
         }
         customerArray.clear();
-        customerArray = sortCust;
+        customerArray = sortCus;
     }
     
     public void sortSupplier(){
@@ -183,24 +183,24 @@ public class runReadWrite {
             System.exit(1);
         }
     }
-    //Question 2f
-    public String rent(){
+    
+    public String rentCus(){
         int count = customerArray.size();
-        int rentAbility = 0;
-        int rentUnability = 0;
+        int rentYes = 0;
+        int rentNo = 0;
         
         for(int i = 0; i < count; i++)
         {
             if(customerArray.get(i).getCanRent())
             {
-                rentAbility++;
+                rentYes++;
             }
             else
             {
-                rentUnability++;
+                rentNo++;
             }
         }
-        String line = "Number of customers who can rent : "+ '\t' + rentAbility + '\n' + "Number of customers who cannot rent : "+ '\t' + rentUnability;
+        String line = "Number of customers who can rent : "+ '\t' + rentYes + '\n' + "Number of customers who cannot rent : "+ '\t' + rentNo;
         return line;
     }
     
@@ -230,7 +230,7 @@ public class runReadWrite {
         }
         catch (IOException ioe)
         {            
-            System.out.println("error closing text file: " + ioe.getMessage());
+            System.out.println("Error closing text file: " + ioe.getMessage());
             System.exit(1);
         }
     }
