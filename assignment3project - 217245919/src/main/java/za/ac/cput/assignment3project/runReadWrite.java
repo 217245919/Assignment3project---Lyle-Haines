@@ -22,6 +22,8 @@ import java.util.Arrays;
  * @author Lyle Haines - 217245919
  * This java program reads and write from a ser and txt file respectively
  */
+
+
 public class runReadWrite {
     ObjectInputStream input;
     FileWriter writer;
